@@ -12,7 +12,7 @@ struct Noeud {
     Noeud* parent = nullptr;
 
     std::size_t prof = 0;
-    T etiq{};
+    const T etiq{};
 };
 
 template <typename T>
@@ -23,6 +23,11 @@ bool noeud_exterieur(const Noeud<T>& N) {
 template <typename T>
 bool noeud_interieur(const Noeud<T>& N) {
     return N.fils_gauche != nullptr && N.fils_droit != nullptr;
+}
+
+template <typename T>
+bool noeud_racine(const Noeud<T>& N) {
+    return N.parent == nullptr;
 }
 
 #endif
